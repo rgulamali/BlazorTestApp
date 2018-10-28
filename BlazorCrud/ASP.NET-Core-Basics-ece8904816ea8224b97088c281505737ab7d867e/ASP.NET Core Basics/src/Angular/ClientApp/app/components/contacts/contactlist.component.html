@@ -1,0 +1,22 @@
+﻿<h1>Contact List</h1>
+
+<p *ngIf="!contacts"><em>Loading...</em></p>
+
+<a [routerLink]="['/contact-detail']">Create New Contact</a>
+
+<table class="table" *ngIf="contacts">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contact of contacts">
+            <td>{{contact.id}}</td>
+            <td>{{contact.name}}</td>
+            <td><a [routerLink]="['/contact-detail', contact.id]" (click)="onSelect(contact)">Details</a></td>
+        </tr>
+    </tbody>
+</table>
